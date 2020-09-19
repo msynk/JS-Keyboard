@@ -22,7 +22,7 @@
             console.log('e', e);
             console.log('registered @', args.a);
             console.log('trigered @', args.b());
-        }, { args: { a: Date.now(), b: function () { return Date.now(); } } });
+        }, { args: { a: Date.now(), b: Date.now } });
 
         keyboard.on('*F5', function (e) {
             console.log('oh Ctrl+F5');
