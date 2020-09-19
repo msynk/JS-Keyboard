@@ -15,7 +15,6 @@
     <script src="jsk.js"></script>
     <script>
         var container = document.getElementById('container'),
-            input = document.getElementById('input'),
             keyboard = JSK();
 
         keyboard.on('F5', function (e, args) {
@@ -34,10 +33,10 @@
             console.log('oh Shift+F5');
         });
 
-        keyboard.on('a', function () { console.log('a keydown'); }, { Event: JSK.Events.KeyDown });
+        keyboard.on('!a', function () { console.log('a keydown'); }, { Event: JSK.Events.KeyDown });
         keyboard.on('a', function () { console.log('a keyup'); }, { Event: JSK.Events.KeyUp });
 
-        keyboard.on('b', function (e) { e.target.value = 'hehe'; }, { Element: input });
+        keyboard.on('b', function (e) { e.target.value = 'hehe'; }, { Element: document.getElementById('input') });
     </script>
 </body>
 
