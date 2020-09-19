@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSV test</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <script src="jsk.js"></script>
+    <script>
+        console.log('start JSV');
+        var container = document.getElementById('container');
+        var keyboard = JSK();
+
+        keyboard.on('F5', function (e, args) {
+            console.log('oh F5');
+            console.log('e', e);
+            console.log('registered @', args.a);
+            console.log('trigered @', args.b());
+        }, { args: { a: Date.now(), b: function () { return Date.now(); } } });
+
+        keyboard.on('*F5', function (e) {
+            console.log('oh Ctrl+F5');
+            console.log('e', e);
+        });
+
+        keyboard.on('+F5', function () {
+            console.log('oh Shift+F5');
+        });
+
+        keyboard.on('a', function () { console.log('a keydown'); }, { Event: JSK.Events.KeyDown });
+        keyboard.on('a', function () { console.log('a keyup'); }, { Event: JSK.Events.KeyUp });
+    </script>
+</body>
+
+</html>
