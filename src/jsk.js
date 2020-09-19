@@ -108,7 +108,7 @@ var JSK = (function () {
                     var listener = listeners[j],
                         options = listener.options;
                     if (!(!options || (
-                        (!options['Event'] || options['Event'] === event) &&
+                        (!options['Event'] || options['Event'] === event || options['Event'] === JSK.Events.Both) &&
                         (!options['Element'] || options['Element'] === e.target))
                     )) continue;
 
